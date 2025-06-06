@@ -8,14 +8,19 @@ class Biblioteca
     public function prestamos(String $accion){
         $accion = strtolower($accion);
         $datos = preg_split("/[ ]/",$accion);
-        $this->prestamos[] = $datos[1];
+        if(array_key_exists($datos[1],$this->prestamos))
+            $this->prestamos[$datos[1]] += 1;
+        else{
+            $this->prestamos[$datos[1]] = 1;
+        }
         $respuesta = "";
-        sort($this->prestamos);
-        foreach($this->prestamos as $prestamo){
+        $librosPrestados = array_keys($this->prestamos);
+        sort($librosPrestados);
+        foreach($librosPrestados as $prestamo){
             if($respuesta != ""){
                 $respuesta .= ", ";
             }
-            $respuesta .= $prestamo . " x1";
+            $respuesta .= $prestamo . " x".$this->prestamos[$prestamo];
         }
         return $respuesta;
     } 

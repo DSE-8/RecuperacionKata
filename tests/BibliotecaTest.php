@@ -34,6 +34,17 @@ final class BibliotecaTest extends TestCase
     /**
      * @test
      */
+    public function prestarUnLibroYaPrestadoDevuelveUnLibroConSuNumeroDePrestamos(){
+        $prestamos = $this->biblioteca->prestamos("prestar unLibro");
+
+        $prestamos = $this->biblioteca->prestamos("prestar unLibro");
+        
+        assertEquals("unlibro x2",$prestamos);
+    }
+
+    /**
+     * @test
+     */
     public function prestarUnLibroConOtrosLibrosPrestadosDevuelveVariosLibros(){
         $prestamos = $this->biblioteca->prestamos("prestar otrolibro");
 
