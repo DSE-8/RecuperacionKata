@@ -1,0 +1,35 @@
+{
+  "name": "deg540/recuperacionkata",
+  "description": "Recuperacion de la kata",
+  "type": "project",
+  "require": {
+    "php": "^8.2",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.6",
+    "phpunit/phpunit": "^9.5",
+    "php-vcr/php-vcr": "^1.3"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Deg540\\RecuperacionKata\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Deg540\\RecuperacionKata\\Test\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "scripts": {
+    "test": [
+      "parallel-lint . --exclude vendor",
+      "phpunit --configuration phpunit.xml"
+    ]
+  }
+}
