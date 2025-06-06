@@ -13,7 +13,7 @@ final class BibliotecaTest extends TestCase
      */
     public function prestarLibroSinLibrosPrestadosDevuelveUnLibro(){
         $biblioteca = new Biblioteca();
-        
+
         $prestamos = $biblioteca->prestamos("prestar libro");
 
         assertEquals("libro x1",$prestamos);
@@ -27,6 +27,18 @@ final class BibliotecaTest extends TestCase
         $prestamos = $biblioteca->prestamos("prestar otroLibro");
 
         $prestamos = $biblioteca->prestamos("prestar unLibro");
+
+        assertEquals("otroLibro x1, unLibro x1",$prestamos);
+    }
+
+    /**
+     * @test
+     */
+    public function prestarUnLibroDevuelveLosLibrosOrdenadosAlfabeticamente(){
+        $biblioteca = new Biblioteca();
+        $prestamos = $biblioteca->prestamos("prestar unLibro");
+
+        $prestamos = $biblioteca->prestamos("prestar otroLibro");
 
         assertEquals("otroLibro x1, unLibro x1",$prestamos);
     }

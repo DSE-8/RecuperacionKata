@@ -9,6 +9,7 @@ class Biblioteca
         $datos = preg_split("/[ ]/",$accion);
         $this->prestamos[] = $datos[1];
         $respuesta = "";
+        sort($this->prestamos);
         foreach($this->prestamos as $prestamo){
             if($respuesta != ""){
                 $respuesta .= ", ";
