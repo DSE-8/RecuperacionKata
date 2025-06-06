@@ -55,4 +55,15 @@ final class BibliotecaTest extends TestCase
 
         assertEquals("otrolibro x1, unlibro x1",$prestamos);
     }
+
+    /**
+     * @test
+     */
+    public function limpiarEliminaTodosLosPrestamos(){
+        $prestamos = $this->biblioteca->prestamos("prestar unLibro");
+
+        $prestamos = $this->biblioteca->prestamos("limpiar");
+
+        assertEquals("",$prestamos);
+    }
 }

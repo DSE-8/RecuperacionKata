@@ -24,6 +24,11 @@ class Biblioteca
         $accion = strtolower($accion);
         $datos = preg_split("/[ ]/",$accion);
 
+        if($datos[0] == "limpiar"){
+            $this->prestamos = [];
+            return;
+        }
+
         $cantidad = 1;
         if(2 < count($datos)){
             $cantidad = $datos[2];
