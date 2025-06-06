@@ -66,4 +66,15 @@ final class BibliotecaTest extends TestCase
 
         assertEquals("",$prestamos);
     }
+
+    /**
+     * @test
+     */
+    public function devolverUnLibroReduceEsePrestamoYDevuelveLosLibrosOrdenadosAlfabeticamente(){
+        $prestamos = $this->biblioteca->prestamos("prestar unlibro 2");
+
+        $prestamos = $this->biblioteca->prestamos("devolver unlibro");
+
+        assertEquals("unlibro x1",$prestamos);
+    }
 }

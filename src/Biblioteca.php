@@ -34,6 +34,11 @@ class Biblioteca
             $cantidad = $datos[2];
         }
 
+        if($datos[0] == "devolver"){
+            $this->prestamos[$datos[1]] -= 1;
+            return;
+        }
+
         if(!array_key_exists($datos[1],$this->prestamos)){
             $this->prestamos[$datos[1]] = $cantidad;
             return;
