@@ -13,6 +13,7 @@ final class BibliotecaTest extends TestCase
      */
     public function prestarLibroSinLibrosPrestadosDevuelveUnLibro(){
         $biblioteca = new Biblioteca();
+        
         $prestamos = $biblioteca->prestamos("prestar libro");
 
         assertEquals("libro x1",$prestamos);
