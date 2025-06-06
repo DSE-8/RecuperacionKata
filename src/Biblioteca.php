@@ -6,8 +6,11 @@ class Biblioteca
 { 
     private Array $prestamos = []; 
     public function prestamos(String $accion){
-        $this->manejarLaAccion($accion);
-
+        $respuesta = $this->manejarLaAccion($accion);
+        if($respuesta != null){
+            return $respuesta;
+        }
+        
         $respuesta = "";
         $librosPrestados = array_keys($this->prestamos);
         sort($librosPrestados);
@@ -36,6 +39,10 @@ class Biblioteca
 
         if($datos[0] == "devolver"){
             $this->prestamos[$datos[1]] -= 1;
+            if($this->prestamos[$datos[1]] == 0){
+                unset($this->prestamos[$datos[1]]);
+                return "El libro indicado no está en préstamo";
+            }
             return;
         }
 

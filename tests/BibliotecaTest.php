@@ -77,4 +77,16 @@ final class BibliotecaTest extends TestCase
 
         assertEquals("unlibro x1",$prestamos);
     }
+
+    /**
+     * @test
+     */
+    public function devolverUnLibroNoPrestadoDevuelveUnErrorIndicandoQueNoEstaPrestado(){
+        $prestamos = $this->biblioteca->prestamos("prestar unlibro 2");
+        $prestamos = $this->biblioteca->prestamos("devolver unlibro");
+
+        $prestamos = $this->biblioteca->prestamos("devolver unlibro");
+
+        assertEquals("El libro indicado no está en préstamo",$prestamos);
+    }
 }
