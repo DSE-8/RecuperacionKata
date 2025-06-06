@@ -44,7 +44,6 @@ class Biblioteca
             $this->prestamos[$datos[1]] -= 1;
             if($this->prestamos[$datos[1]] == 0){
                 unset($this->prestamos[$datos[1]]);
-                return "El libro indicado no está en préstamo";
             }
             return;
         }
