@@ -17,4 +17,16 @@ final class BibliotecaTest extends TestCase
 
         assertEquals("libro x1",$prestamos);
     }
+
+    /**
+     * @test
+     */
+    public function prestarUnLibroConOtrosLibrosPrestadosDevuelveVariosLibros(){
+        $biblioteca = new Biblioteca();
+        $prestamos = $biblioteca->prestamos("prestar otroLibro");
+
+        $prestamos = $biblioteca->prestamos("prestar unLibro");
+
+        assertEquals("otroLibro x1, unLibro x1",$prestamos);
+    }
 }
