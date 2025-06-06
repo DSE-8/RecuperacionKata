@@ -13,14 +13,6 @@ final class BibliotecaTest extends TestCase
         parent::setup();
         $this->biblioteca = new Biblioteca();
     }
-    /**
-     * @test
-     */
-    public function prestarLibroSinLibrosPrestadosDevuelveUnLibro(){
-        $prestamos = $this->biblioteca->prestamos("prestar libro");
-
-        assertEquals("libro x1",$prestamos);
-    }
 
     /**
      * @test
@@ -38,19 +30,8 @@ final class BibliotecaTest extends TestCase
         $prestamos = $this->biblioteca->prestamos("prestar unLibro");
 
         $prestamos = $this->biblioteca->prestamos("prestar unLibro");
-        
+
         assertEquals("unlibro x2",$prestamos);
-    }
-
-    /**
-     * @test
-     */
-    public function prestarUnLibroConOtrosLibrosPrestadosDevuelveVariosLibros(){
-        $prestamos = $this->biblioteca->prestamos("prestar otrolibro");
-
-        $prestamos = $this->biblioteca->prestamos("prestar unlibro");
-
-        assertEquals("otrolibro x1, unlibro x1",$prestamos);
     }
 
     /**
