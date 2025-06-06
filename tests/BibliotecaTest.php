@@ -12,7 +12,7 @@ final class BibliotecaTest extends TestCase
     protected function setUp(): void{
         parent::setup();
         $this->biblioteca = new Biblioteca();
-    } 
+    }
     /**
      * @test
      */
@@ -25,22 +25,31 @@ final class BibliotecaTest extends TestCase
     /**
      * @test
      */
-    public function prestarUnLibroConOtrosLibrosPrestadosDevuelveVariosLibros(){
-        $prestamos = $this->biblioteca->prestamos("prestar otroLibro");
-
+    public function prestarUnLibroEnMayusculasDevuelveUnLibroEnMinusculas(){
         $prestamos = $this->biblioteca->prestamos("prestar unLibro");
 
-        assertEquals("otroLibro x1, unLibro x1",$prestamos);
+        assertEquals("unlibro x1",$prestamos);
+    }
+
+    /**
+     * @test
+     */
+    public function prestarUnLibroConOtrosLibrosPrestadosDevuelveVariosLibros(){
+        $prestamos = $this->biblioteca->prestamos("prestar otrolibro");
+
+        $prestamos = $this->biblioteca->prestamos("prestar unlibro");
+
+        assertEquals("otrolibro x1, unlibro x1",$prestamos);
     }
 
     /**
      * @test
      */
     public function prestarUnLibroDevuelveLosLibrosOrdenadosAlfabeticamente(){
-        $prestamos = $this->biblioteca->prestamos("prestar unLibro");
+        $prestamos = $this->biblioteca->prestamos("prestar unlibro");
 
-        $prestamos = $this->biblioteca->prestamos("prestar otroLibro");
+        $prestamos = $this->biblioteca->prestamos("prestar otrolibro");
 
-        assertEquals("otroLibro x1, unLibro x1",$prestamos);
+        assertEquals("otrolibro x1, unlibro x1",$prestamos);
     }
 }

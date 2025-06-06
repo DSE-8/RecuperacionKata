@@ -6,6 +6,7 @@ class Biblioteca
 { 
     private Array $prestamos = []; 
     public function prestamos(String $accion){
+        $accion = strtolower($accion);
         $datos = preg_split("/[ ]/",$accion);
         $this->prestamos[] = $datos[1];
         $respuesta = "";
